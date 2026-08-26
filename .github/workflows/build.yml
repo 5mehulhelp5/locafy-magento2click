@@ -30,7 +30,7 @@ jobs:
         run: flutter pub get
 
       - name: Build APK
-        run: flutter build apk --release
+        run: flutter build apk --release --dart-define=MAGENTO_ACCESS_TOKEN=${{ secrets.MAGENTO_ACCESS_TOKEN }}
 
       - name: Upload Android Artifact
         uses: actions/upload-artifact@v4
@@ -116,7 +116,7 @@ jobs:
         run: flutter pub get
 
       - name: Build IPA
-        run: flutter build ipa --release --export-options-plist=ios/ExportOptions.plist
+        run: flutter build ipa --release --export-options-plist=ios/ExportOptions.plist --dart-define=MAGENTO_ACCESS_TOKEN=${{ secrets.MAGENTO_ACCESS_TOKEN }}
 
       - name: Rename IPA
         run: mv build/ios/ipa/*.ipa build/ios/ipa/locafy-customerapp.ipa

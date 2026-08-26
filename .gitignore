@@ -44,3 +44,6 @@ ios/Runner/GeneratedPluginRegistrant.*
 # Android CMake / NDK build cache
 android/app/.cxx/
 android/app/src/main/jniLibs/
+
+# Build-time secrets (see configs/dart-defines.example.json)
+configs/dart-defines.json

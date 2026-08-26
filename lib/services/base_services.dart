@@ -8,6 +8,7 @@ import 'package:magentoegypt/models/banner_images_model.dart';
 import 'package:magentoegypt/models/entities/product_review.dart';
 import '../common/config.dart';
 import '../data/boxes.dart';
+import '../env.dart';
 import '../frameworks/magento/services/magento_helper.dart';
 import '../models/entities/order_delivery_date.dart';
 import '../models/entities/paging_response.dart';
@@ -25,7 +26,12 @@ abstract class BaseServices {
 
   final String domain;
 
-  final String adminKey = "jd7u3bu9g7ca1vgocv0dvpr77xof57jf";
+  /// The same Magento integration token as `serverConfig.accessToken`, used as
+  /// the Bearer credential by the mstore endpoints below. It used to be a
+  /// second hardcoded copy of the literal; it now comes from the build-time
+  /// --dart-define like the first one, so the token is not committed.
+  /// See [kMagentoAccessToken].
+  final String adminKey = kMagentoAccessToken;
 
   BaseServices({
     required this.domain,

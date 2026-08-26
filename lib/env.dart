@@ -1,4 +1,22 @@
 // ignore_for_file: prefer_single_quotes, lines_longer_than_80_chars final
+
+/// Magento integration token, supplied at build time so it never lives in
+/// source — this repo is public.
+///
+///   flutter run   --dart-define-from-file=configs/dart-defines.json
+///   flutter build --dart-define-from-file=configs/dart-defines.json
+///
+/// `configs/dart-defines.json` is gitignored; copy it from
+/// `configs/dart-defines.example.json` and paste the real token in. CI supplies
+/// it from the MAGENTO_ACCESS_TOKEN repository secret instead.
+///
+/// MUST stay `const`: String.fromEnvironment only reads the --dart-define when
+/// it is const-evaluated. Drop the `const` and it silently returns the default,
+/// which is the empty string — every REST call would then 401 with no clue why.
+/// main.dart logs a loud warning when this comes through empty.
+const String kMagentoAccessToken =
+    String.fromEnvironment('MAGENTO_ACCESS_TOKEN');
+
 Map<String, dynamic> environment = {
   "version": '2.2.0',
   //This code is specifying the location of a configuration file for an application.
@@ -10,7 +28,7 @@ Map<String, dynamic> environment = {
     // Base URL for this build. All REST/GraphQL calls and catalog media
     // (kMediaDomain in lib/common/constants/general.dart) derive from it.
     "url": "https://locafy.magento2.click",
-    "accessToken": "jd7u3bu9g7ca1vgocv0dvpr77xof57jf",
+    "accessToken": kMagentoAccessToken,
     'blog': "https://mstore.io",
     //"https://magentoegypt.com/blog/ar/",
     //'https://magentoegypt.com/userguide/ug/%d9%85%d9%82%d8%af%d9%85%d8%a9-%d8%b9%d9%86-%d9%82%d8%a7%d8%a6%d9%85%d8%a9-%d8%a7%d9%84%d9%85%d8%a8%d9%8a%d8%b9%d8%a7%d8%aa-sales-menu-%d9%81%d9%89-%d9%85%d8%aa%d8%ac%d8%b1-%d9%85%d8%a7%d8%ac%d9%86%d8%aa%d9%88-2/',

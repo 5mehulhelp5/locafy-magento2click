@@ -81,6 +81,16 @@ void main() {
 
   Services.getNotificationService().requestNotificationPermission();
 
+  /// A build made without the token still starts and still renders — it just
+  /// 401s on every authenticated Magento call, which reads as "the backend is
+  /// down" rather than "you forgot a build flag". Say so plainly instead.
+  if (kMagentoAccessToken.isEmpty) {
+    printLog('[main] !! MAGENTO_ACCESS_TOKEN is empty. Build with '
+        '--dart-define-from-file=configs/dart-defines.json (locally) or set the '
+        'MAGENTO_ACCESS_TOKEN repository secret (CI). Every authenticated '
+        'Magento REST call will return 401 until you do.');
+  }
+
   Configurations().setConfigurationValues(environment);
 
   /// Fix issue android sdk version 22 can not run the app.
