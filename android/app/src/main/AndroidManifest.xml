@@ -78,7 +78,7 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="Locafy Fashion Marketplace"
+        android:label="Locafy M2Click"
         android:theme="@style/AppTheme"
         android:requestLegacyExternalStorage="true"
         android:fullBackupContent="@xml/backup_rules"

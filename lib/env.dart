@@ -48,7 +48,7 @@ Map<String, dynamic> environment = {
   },
   "storeIdentifier": {
     "disable": true,
-    "android": "com.magentoegyptpro.ajstore",
+    "android": "com.locafy.magento2click",
     "ios": "1469772800"
   },
   "advanceConfig": {
@@ -347,7 +347,7 @@ Map<String, dynamic> environment = {
     //The link your app will open
     "link": "https://mstore.io/",
     //----------* Android Setting *----------//
-    "androidPackageName": "com.magentoegyptpro.ajstore",
+    "androidPackageName": "com.locafy.magento2click",
     "androidAppMinimumVersion": 1,
     //----------* iOS Setting *----------//
     "iOSBundleId": "com.magentoegypt.ajstore",

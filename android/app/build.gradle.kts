@@ -31,8 +31,17 @@ android {
 
 
     defaultConfig {
-        // Must match a client in android/app/google-services.json (Firebase)
-        applicationId = "com.magentoegyptpro.ajstore"
+        // Deliberately NOT the ajstore id: Loadly groups builds by this
+        // identifier, so sharing it made this fork overwrite the original
+        // app's Loadly entry (buildIsFirst:0). Distinct id = distinct app,
+        // and both can be installed side by side for comparison.
+        //
+        // NOTE: google-services.json still lists only com.magentoegyptpro.ajstore.
+        // That is inert here (the com.google.gms.google-services plugin is
+        // not applied; Firebase is configured from lib/firebase_options.dart),
+        // but FCM and any package-restricted Google API keys must have this
+        // new id registered in the Firebase / Cloud consoles to work.
+        applicationId = "com.locafy.magento2click"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
