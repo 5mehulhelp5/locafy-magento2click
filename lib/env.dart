@@ -350,7 +350,7 @@ Map<String, dynamic> environment = {
     "androidPackageName": "com.locafy.magento2click",
     "androidAppMinimumVersion": 1,
     //----------* iOS Setting *----------//
-    "iOSBundleId": "com.magentoegypt.ajstore",
+    "iOSBundleId": "com.locafy.magento2click",
     "iOSAppMinimumVersion": "1.0.1",
     "iOSAppStoreId": "1469772800"
   },

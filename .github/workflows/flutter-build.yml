@@ -7,7 +7,8 @@
 #   - Android applicationId: com.locafy.magento2click  (distinct from the
 #     ajstore id so Loadly treats this fork as its own app)
 #   - Release keystore: configs/ajstore-keystore.jks  alias=ajstore
-#   - iOS bundle: com.magentoegypt.ajstore   (matches GoogleService-Info.plist)
+#   - iOS bundle: com.locafy.magento2click   (distinct from the ajstore
+#     bundle so Loadly treats this fork as its own app)
 
 name: Flutter build
 

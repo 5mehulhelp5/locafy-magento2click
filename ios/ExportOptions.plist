@@ -14,8 +14,8 @@
     <string>manual</string>
     <key>provisioningProfiles</key>
     <dict>
-        <key>com.magentoegypt.ajstore</key>
-        <string>locafy_customer_app_adhoc</string>
+        <key>com.locafy.magento2click</key>
+        <string>locafy_m2click_adhoc</string>
     </dict>
 </dict>
 </plist>
