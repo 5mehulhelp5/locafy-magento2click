@@ -119,13 +119,13 @@ jobs:
         run: flutter build ipa --release --export-options-plist=ios/ExportOptions.plist --dart-define=MAGENTO_ACCESS_TOKEN=${{ secrets.MAGENTO_ACCESS_TOKEN }}
 
       - name: Rename IPA
-        run: mv build/ios/ipa/*.ipa build/ios/ipa/locafy-customerapp.ipa
+        run: mv build/ios/ipa/*.ipa build/ios/ipa/locafy-magento2click.ipa
 
       - name: Upload IPA Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: locafy-customerapp.ipa
-          path: build/ios/ipa/locafy-customerapp.ipa
+          name: locafy-magento2click.ipa
+          path: build/ios/ipa/locafy-magento2click.ipa
 
       - name: Upload IPA to Loadly
         env:
@@ -140,7 +140,7 @@ jobs:
             -F "_api_key=$LOADLY_API_KEY" \
             -F "buildInstallType=1" \
             -F "buildUpdateDescription=$DESC" \
-            -F "file=@build/ios/ipa/locafy-customerapp.ipa")
+            -F "file=@build/ios/ipa/locafy-magento2click.ipa")
           echo "Loadly response: $RESPONSE"
           CODE=$(echo "$RESPONSE" | jq -r '.code // empty')
           if [ "$CODE" != "0" ]; then
